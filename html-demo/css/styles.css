@@ -1,0 +1,37 @@
+header nav{
+    background-color: darkcyan;
+}
+nav ul {
+    list-style: none;
+}
+nav ul li{
+    display: inline-flex;
+    margin: 15px;
+    padding : 8px;
+}
+
+nav ul li:hover{
+    background-color: beige;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+footer{
+    background-color: darkcyan;
+    display: flex;
+}
+
+aside ul li {
+    list-style: none;
+}
+aside ul li a{
+    text-decoration: none;
+    margin-top: 4px;
+    padding: 3px;
+}
+
+main{
+    display: flex;
+}
