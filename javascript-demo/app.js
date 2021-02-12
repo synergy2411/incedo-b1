@@ -258,13 +258,35 @@
 
 
 
+//  - Contructor - ES5 - similar type of objects
+    
+// function Person(firstName, lastNAme){
+//     this.firstName = firstName;
+//     this.lastNAme = lastNAme;
+// }
+
+// var foo = new Person("Foo", "Bar");
+// var bam = new Person("Bam", "Baz");
 
 
 
+//  - Instance (ES5) - inheritance purposes
+
+// var Shoe = {
+//     size : 8
+// }
+
+// var magicShoe = Object.create(Shoe);
+
+// console.log(magicShoe.size);        // ?
+
+// var animal = { eats : true};
+// var rabbit = { jumps : true, __proto__ : animal}
+
+// console.log(rabbit.eats);       // true
 
 
+// JSON
 
 
-
-//  - Contructor
-//  - Instance 
+// JavaScript Object
