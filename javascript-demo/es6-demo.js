@@ -246,20 +246,20 @@
 
 // - CLASS SYNTAX - ES6
 
-class Student{
-    constructor(firstName, lastName, age){
-        this.firstName = firstName;
-        this.lastName= lastName;
-        this.age = age;
-    }
+// class Student{
+//     constructor(firstName, lastName, age){
+//         this.firstName = firstName;
+//         this.lastName= lastName;
+//         this.age = age;
+//     }
 
-    sayHello(){
-        return "Hello " + this.firstName + ", How are you ?"
-    }
-}
+//     sayHello(){
+//         return "Hello " + this.firstName + ", How are you ?"
+//     }
+// }
 
-var foo = new Student("foo", "bar", 32);
-console.log(foo.sayHello());
+// var foo = new Student("foo", "bar", 32);
+// console.log(foo.sayHello());
 
 
 
@@ -290,6 +290,10 @@ console.log(foo.sayHello());
 
 // - ES6 Module
 
+// CommonJS Pattern to load modules
+// - AMD - Asynchronous Module Definition
+require("./utils");
+
 import { getMyLuckyNumber } from "./utils";
 console.log(getMyLuckyNumber);
 
@@ -312,4 +316,5 @@ console.log(getMyLuckyNumber);
 
 
 
-// - MANY MORE UPDATES/HELPER METHODS (Object.assign, Object.entries, Object.values etc)
+// - MANY MORE UPDATES/HELPER METHODS 
+// (Object.assign, Object.entries, Object.values etc)
