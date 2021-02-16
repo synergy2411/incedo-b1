@@ -8,4 +8,6 @@ function FunctionBasedCompDemo(){
     )
 }
 
-export default FunctionBasedCompDemo;
+export function a(){}
+ function b(){}
+ export default FunctionBasedCompDemo;

@@ -3,7 +3,13 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ClassBasedCompDemo from './components/Types/ClassBasedCompDemo';
-import FunctionBasedCompDemo from "./components/Types/FunctionBasedCompDemo";
+
+// import the named function
+// import {FunctionBasedCompDemo, a, b} from "./components/Types/FunctionBasedCompDemo";
+
+// import the default function
+import xyz, {a} from "./components/Types/FunctionBasedCompDemo";
+import Parent from './components/CmpCommunication/Parent';
 
 function App() {
   return (
@@ -11,10 +17,13 @@ function App() {
     //   React.createElement("p",{}, "Hello World again!"))
     <div className="App">
       <p className="display-4"> Hello World!</p>
-      <hr />
+
+      <Parent />
+
+      {/* <hr />
       <ClassBasedCompDemo />
       <hr />
-      <FunctionBasedCompDemo />
+      <xyz /> */}
     </div>
   );
 }
