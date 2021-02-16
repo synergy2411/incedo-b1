@@ -8,8 +8,10 @@ import ClassBasedCompDemo from './components/Types/ClassBasedCompDemo';
 // import {FunctionBasedCompDemo, a, b} from "./components/Types/FunctionBasedCompDemo";
 
 // import the default function
-import xyz, {a} from "./components/Types/FunctionBasedCompDemo";
-import Parent from './components/CmpCommunication/Parent';
+// import xyz, {a} from "./components/Types/FunctionBasedCompDemo";
+// import Parent from './components/CmpCommunication/Parent';
+
+import Parent from './components/StateDemo/Parent';
 
 function App() {
   return (
