@@ -11,12 +11,27 @@ class Notes extends Component {
             {id: 4, title : "insurance", body : "renew bike insurance"}
         ]
     }
+
+    onAddNewItem = (title, body ) =>{
+        const newNote = {
+            title, 
+            body, 
+            id : this.state.notes.length + 1
+        }
+        this.setState({
+            notes : [...this.state.notes, newNote]
+        })
+
+        console.log(this.state.notes);
+    }
+
     render() {
         return (
             <div>
                 <NoteList notes = {this.state.notes}/>
                 <hr />
-                <NoteForm />
+                <NoteForm 
+                    addNewItem = { (title, body) => this.onAddNewItem(title, body)}/>
             </div>
         );
     }

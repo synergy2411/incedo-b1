@@ -1,0 +1,9 @@
+.margin-card{
+    margin : 12px;
+    transition: all 0.3s ease-in;
+}
+
+.margin-card:hover{
+    background-color: darkcyan;
+    cursor: pointer;
+}   
