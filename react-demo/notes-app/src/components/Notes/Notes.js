@@ -9,7 +9,8 @@ class Notes extends Component {
             {id: 2, title : "grocery", body : "buy the pulses"},
             {id: 3, title : "plants", body : "pot the plants"},
             {id: 4, title : "insurance", body : "renew bike insurance"}
-        ]
+        ],
+        showForm : false
     }
 
     onAddNewItem = (title, body ) =>{
@@ -21,17 +22,21 @@ class Notes extends Component {
         this.setState({
             notes : [...this.state.notes, newNote]
         })
-
-        console.log(this.state.notes);
     }
 
     render() {
+        let myForm = null;
+        if(this.state.showForm){
+            myForm = <NoteForm addNewItem = { (title, body) => this.onAddNewItem(title, body)}/>
+        }
         return (
             <div>
                 <NoteList notes = {this.state.notes}/>
+
+                <button onClick={() => this.setState({showForm : !this.state.showForm}) }>Show Form</button>
+                
                 <hr />
-                <NoteForm 
-                    addNewItem = { (title, body) => this.onAddNewItem(title, body)}/>
+                {myForm}
             </div>
         );
     }
