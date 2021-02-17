@@ -5,7 +5,8 @@ class NoteList extends Component {
     render() {
         // console.log(this.props.notes);  // 
         let noteItems = this.props.notes.map(note => {
-            return <NoteItem note={note} key = {note.id}/>
+            return <NoteItem note={note} key = {note.id} 
+                selectedNote = {id => this.props.onSelectedNote(id)}/>
         })
         return (
             <div className="row">
