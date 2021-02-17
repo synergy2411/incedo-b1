@@ -38,7 +38,8 @@ class EditNote extends Component {
                                         <button className="btn btn-primary btn-block">Update</button>
                                     </div>
                                     <div className="col-sm-4 col-md-4">
-                                    <button className="btn btn-warning btn-block">Cancel</button>
+                                    <button className="btn btn-warning btn-block"
+                                        onClick={() => this.props.cancelItem()}>Cancel</button>
                                     </div>
                                     <div className="col-sm-4 col-md-4">
                                     <button className="btn btn-danger btn-block"
