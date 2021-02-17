@@ -42,6 +42,16 @@ class Notes extends Component {
         })
     }
 
+    onUpdateItem = (id, body) => {
+        const noteFound = this.state.notes.find(note => note.id === id);
+        noteFound.body = body;
+        const duplicateNotes = this.state.notes.filter(note => note.id !== id);
+        this.setState({
+            notes : [...duplicateNotes, noteFound],
+            selectedNoteId : null
+        })
+    }
+
     render() {
         let myForm = null;
         let editNote = null;
@@ -51,7 +61,8 @@ class Notes extends Component {
 
             editNote = <EditNote note={note}
                 onDeleteItem={id => this.onDeleteItem(id)} 
-                cancelItem = {() => this.setState({ selectedNoteId : null})}/>
+                cancelItem = {() => this.setState({ selectedNoteId : null})}
+                onUpdateItem = { (id, body) => this.onUpdateItem(id, body) }/>
         }
 
 

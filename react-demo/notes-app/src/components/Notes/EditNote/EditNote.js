@@ -6,6 +6,14 @@ class EditNote extends Component {
         body : this.props.note.body
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.note.body !== this.props.note.body){
+            this.setState({
+                body : this.props.note.body
+            })
+        }
+    }
+
     handleBodyChange = event =>{
         this.setState({
             body : event.target.value
@@ -15,6 +23,10 @@ class EditNote extends Component {
     deleteItem = event => {
         event.preventDefault();
         this.props.onDeleteItem(this.props.note.id);
+    }
+
+    updateItem = () => {
+        this.props.onUpdateItem(this.props.note.id, this.state.body);
     }
 
     render() {
@@ -35,7 +47,8 @@ class EditNote extends Component {
                                     <br />
                                 <div className="row">
                                     <div className="col-sm-4 col-md-4">
-                                        <button className="btn btn-primary btn-block">Update</button>
+                                        <button className="btn btn-primary btn-block"
+                                            onClick = {this.updateItem}>Update</button>
                                     </div>
                                     <div className="col-sm-4 col-md-4">
                                     <button className="btn btn-warning btn-block"
