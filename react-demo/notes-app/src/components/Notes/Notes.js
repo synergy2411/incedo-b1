@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import EditNote from './EditNote/EditNote';
 import NoteForm from './NewNoteForm/NoteForm';
 import NoteList from './NoteList/NoteList';
@@ -13,6 +15,18 @@ class Notes extends Component {
         ],
         showForm: false,
         selectedNoteId: null
+    }
+
+    componentDidMount(){
+        axios.get("https://jsonplaceholder.typicode.com/posts")
+            .then(response => {
+                console.log("RESPONSE - ", response);
+                this.setState({
+                    notes : response.data.slice(0, 6)
+                })
+            }).catch(err => {
+                console.log("ERROR - ", err);
+            })
     }
 
     onAddNewItem = (title, body) => {
@@ -38,7 +52,7 @@ class Notes extends Component {
         // console.log("DUPLICATE NOTES - ", duplicateNotes);
         this.setState({
             notes: [...duplicateNotes],
-            selectedNoteId : null
+            selectedNoteId: null
         })
     }
 
@@ -47,8 +61,8 @@ class Notes extends Component {
         noteFound.body = body;
         const duplicateNotes = this.state.notes.filter(note => note.id !== id);
         this.setState({
-            notes : [...duplicateNotes, noteFound],
-            selectedNoteId : null
+            notes: [...duplicateNotes, noteFound],
+            selectedNoteId: null
         })
     }
 
@@ -60,13 +74,10 @@ class Notes extends Component {
             const note = this.state.notes.find(note => note.id === this.state.selectedNoteId);
 
             editNote = <EditNote note={note}
-                onDeleteItem={id => this.onDeleteItem(id)} 
-                cancelItem = {() => this.setState({ selectedNoteId : null})}
-                onUpdateItem = { (id, body) => this.onUpdateItem(id, body) }/>
+                onDeleteItem={id => this.onDeleteItem(id)}
+                cancelItem={() => this.setState({ selectedNoteId: null })}
+                onUpdateItem={(id, body) => this.onUpdateItem(id, body)} />
         }
-
-
-
         if (this.state.showForm) {
             myForm = <NoteForm addNewItem={(title, body) => this.onAddNewItem(title, body)} />
         }
@@ -75,7 +86,10 @@ class Notes extends Component {
                 <NoteList notes={this.state.notes}
                     onSelectedNote={id => this.onSelectedNote(id)} />
 
-                <button onClick={() => this.setState({ showForm: !this.state.showForm })}>Show Form</button>
+                <button className="btn btn-outline-dark btn-block"
+                    onClick={() => this.setState({ showForm: !this.state.showForm })}>
+                    {this.state.showForm ? "Hide Form" : "Show Form"}
+                </button>
 
                 <hr />
                 {myForm}
