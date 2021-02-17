@@ -14,7 +14,7 @@ class EditNote extends Component {
 
     deleteItem = event => {
         event.preventDefault();
-        this.props.deleteItem(this.props.note.id)
+        this.props.onDeleteItem(this.props.note.id);
     }
 
     render() {

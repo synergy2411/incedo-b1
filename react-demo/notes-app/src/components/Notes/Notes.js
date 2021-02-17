@@ -33,21 +33,24 @@ class Notes extends Component {
         })
     }
 
-    onDeleteItem = id => {
-        const duplicateNotes = this.state.notes.filter(note => note.id !== id)
+    onDeleteItem = id => { // id =3
+        const duplicateNotes = this.state.notes.filter(note => note.id !== id);
+        console.log("DUPLICATE NOTES - ", duplicateNotes);
         this.setState({
-            notes: [...duplicateNotes]
+            notes: [...duplicateNotes],
+            selectedNoteId : null
         })
     }
 
     render() {
         let myForm = null;
         let editNote = null;
+
         if (this.state.selectedNoteId) {
             const note = this.state.notes.find(note => note.id === this.state.selectedNoteId);
 
             editNote = <EditNote note={note}
-                deleteItem={id => this.onDeleteItem(id)} />
+                onDeleteItem={id => this.onDeleteItem(id)} />
         }
 
 
