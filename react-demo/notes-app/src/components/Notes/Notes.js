@@ -5,44 +5,63 @@ import NoteList from './NoteList/NoteList';
 
 class Notes extends Component {
     state = {
-        notes : [
-            {id: 1, title : "shopping", body : "buy the jeans"},
-            {id: 2, title : "grocery", body : "buy the pulses"},
-            {id: 3, title : "plants", body : "pot the plants"},
-            {id: 4, title : "insurance", body : "renew bike insurance"}
+        notes: [
+            { id: 1, title: "shopping", body: "buy the jeans" },
+            { id: 2, title: "grocery", body: "buy the pulses" },
+            { id: 3, title: "plants", body: "pot the plants" },
+            { id: 4, title: "insurance", body: "renew bike insurance" }
         ],
-        showForm : false
+        showForm: false,
+        selectedNoteId: null
     }
 
-    onAddNewItem = (title, body ) =>{
+    onAddNewItem = (title, body) => {
         const newNote = {
-            title, 
-            body, 
-            id : this.state.notes.length + 1
+            title,
+            body,
+            id: this.state.notes.length + 1
         }
         this.setState({
-            notes : [...this.state.notes, newNote]
+            notes: [...this.state.notes, newNote]
         })
     }
 
     onSelectedNote = id => {
         console.log("Selected Note Id - ", id);
+        this.setState({
+            selectedNoteId: id
+        })
+    }
+
+    onDeleteItem = id => {
+        const duplicateNotes = this.state.notes.filter(note => note.id !== id)
+        this.setState({
+            notes: [...duplicateNotes]
+        })
     }
 
     render() {
         let myForm = null;
-        let editNote = <EditNote note={this.state.notes[0]} />
+        let editNote = null;
+        if (this.state.selectedNoteId) {
+            const note = this.state.notes.find(note => note.id === this.state.selectedNoteId);
 
-        if(this.state.showForm){
-            myForm = <NoteForm addNewItem = { (title, body) => this.onAddNewItem(title, body)}/>
+            editNote = <EditNote note={note}
+                deleteItem={id => this.onDeleteItem(id)} />
+        }
+
+
+
+        if (this.state.showForm) {
+            myForm = <NoteForm addNewItem={(title, body) => this.onAddNewItem(title, body)} />
         }
         return (
             <div>
-                <NoteList notes = {this.state.notes}
-                    onSelectedNote = {id => this.onSelectedNote(id)}/>
+                <NoteList notes={this.state.notes}
+                    onSelectedNote={id => this.onSelectedNote(id)} />
 
-                <button onClick={() => this.setState({showForm : !this.state.showForm}) }>Show Form</button>
-                
+                <button onClick={() => this.setState({ showForm: !this.state.showForm })}>Show Form</button>
+
                 <hr />
                 {myForm}
                 {editNote}

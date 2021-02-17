@@ -12,10 +12,15 @@ class EditNote extends Component {
         })
     }
 
+    deleteItem = event => {
+        event.preventDefault();
+        this.props.deleteItem(this.props.note.id)
+    }
+
     render() {
         return (
             <div className="row">
-                <div className="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+                <div className="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
                     <div className="card">
                         <div className="card-header">
                             {this.props.note.title.toUpperCase()}
@@ -29,11 +34,16 @@ class EditNote extends Component {
                                     onChange={this.handleBodyChange}/>
                                     <br />
                                 <div className="row">
-                                    <div className="col-sm-3 col-md-3">
+                                    <div className="col-sm-4 col-md-4">
                                         <button className="btn btn-primary btn-block">Update</button>
                                     </div>
-                                    <div className="col-sm-2 col-md-2"></div>
-                                    <div className="col-sm-2 col-md-2"></div>
+                                    <div className="col-sm-4 col-md-4">
+                                    <button className="btn btn-warning btn-block">Cancel</button>
+                                    </div>
+                                    <div className="col-sm-4 col-md-4">
+                                    <button className="btn btn-danger btn-block"
+                                        onClick={this.deleteItem}>Delete</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
