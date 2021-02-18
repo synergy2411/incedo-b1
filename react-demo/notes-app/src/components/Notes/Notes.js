@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 import EditNote from './EditNote/EditNote';
 import NoteForm from './NewNoteForm/NoteForm';
@@ -17,12 +18,12 @@ class Notes extends Component {
         selectedNoteId: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get("https://jsonplaceholder.typicode.com/posts")
             .then(response => {
                 console.log("RESPONSE - ", response);
                 this.setState({
-                    notes : response.data.slice(0, 6)
+                    notes: response.data.slice(0, 6)
                 })
             }).catch(err => {
                 console.log("ERROR - ", err);
@@ -78,22 +79,46 @@ class Notes extends Component {
                 cancelItem={() => this.setState({ selectedNoteId: null })}
                 onUpdateItem={(id, body) => this.onUpdateItem(id, body)} />
         }
-        if (this.state.showForm) {
-            myForm = <NoteForm addNewItem={(title, body) => this.onAddNewItem(title, body)} />
-        }
+        // if (this.state.showForm) {
+        //     myForm = <NoteForm addNewItem={(title, body) => this.onAddNewItem(title, body)} />
+        // }
         return (
             <div>
-                <NoteList notes={this.state.notes}
-                    onSelectedNote={id => this.onSelectedNote(id)} />
 
-                <button className="btn btn-outline-dark btn-block"
-                    onClick={() => this.setState({ showForm: !this.state.showForm })}>
-                    {this.state.showForm ? "Hide Form" : "Show Form"}
-                </button>
+                <Router>
+                    <ul>
+                        <li>
+                            <Link to="/notes/note-form">New Note Form</Link>
+                        </li>
+                        <li>
+                            <Link to="/notes/edit">Edit Note</Link>
+                        </li>
+                    </ul>
 
-                <hr />
-                {myForm}
-                {editNote}
+
+
+
+
+                    <hr />
+
+                    <Switch>
+                        <Route exact path="/notes">
+                            <NoteList notes={this.state.notes}
+                                onSelectedNote={id => this.onSelectedNote(id)} />
+                            <button className="btn btn-outline-dark btn-block"
+                                onClick={() => this.setState({ showForm: !this.state.showForm })}>
+                                {this.state.showForm ? "Hide Form" : "Show Form"}
+                            </button>
+                        </Route>
+                        <Route exact path="/notes/note-form">
+                            <NoteForm addNewItem={(title, body) => this.onAddNewItem(title, body)} />
+                        </Route>
+                        <Route exact path="/notes/edit">
+                            {editNote}
+                        </Route>
+                    </Switch>
+                </Router>
+
 
             </div>
         );
