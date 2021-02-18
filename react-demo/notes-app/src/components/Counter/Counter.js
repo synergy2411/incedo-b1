@@ -1,34 +1,48 @@
 import React, { Component } from 'react';
-import { connect, connectAdvanced } from 'react-redux';
+import { connect } from 'react-redux';
+import * as counterActions from './store/actions/counterActions';
 
 class Counter extends Component {
     render() {
-
-        console.log(this.props);
-
         return (
-            <div>
+            <div className="container">
+                <p className="display-3 text-center">
                 Counter : {this.props.counter}
+                </p>
+                <div className="row">
+                    <div className="col-sm-3 col-md-3">
+                        <button className="btn btn-primary btn-block"
+                           onClick={this.props.onIncrease}>Increase</button>
+                    </div>
+                    <div className="col-sm-3 col-md-3">
+                        <button className="btn btn-dark btn-block"
+                            onClick={this.props.onDecrease}>Decrease</button>
+                    </div>
+                    <div className="col-sm-3 col-md-3"></div>
+                    <div className="col-sm-3 col-md-3"></div>
+                </div>
+
             </div>
         );
     }
 }
-
 // let connectFunc = connect(mapStateToProps, mapDispatchToProps);
-
 // connectFunc(Counter);
-
 // Map the redux state to component props
 const mapStateToProps = (state) => {
     return {
         counter : state.counter
     }
 }
-
 // Map the redux actions to component props
-const mapDispatchToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-
+        onIncrease : () => {
+            dispatch({type : counterActions.INCREMENT})
+        },
+        onDecrease : () => {
+            dispatch({type : counterActions.DECREMENT})
+        }
     }
 }
 
