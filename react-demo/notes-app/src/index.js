@@ -4,10 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Users from './components/Users/Users';
+import Counter from './components/Counter/Counter';
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './components/Counter/store/reducers/rootReducer';
+
+const store = createStore(rootReducer);
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Users />
+    {/* <Users /> */}
+
+    <Provider store={store}>
+      <Counter />
+    </Provider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

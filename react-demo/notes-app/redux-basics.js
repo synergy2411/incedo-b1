@@ -40,3 +40,5 @@ store.dispatch({type : 'DECREMENT'})
 // console.log("State after DECREMENT - ", store.getState());
 
 store.dispatch({type : 'ADD', payload : 10})
+
+// try to dispatch action for subtracting 5 from counter
