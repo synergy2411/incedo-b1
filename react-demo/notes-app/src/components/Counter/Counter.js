@@ -58,8 +58,8 @@ class Counter extends Component {
 // Map the redux state to component props
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter,
-        result: state.result
+        counter: state.ctr.counter,
+        result: state.res.result
     }
 }
 // Map the redux actions to component props
@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch) => {
         onSubtract: value => {
             dispatch(counterActions.onSubtract(value))
         },
-        onStoreResult : ctr => {
+        onStoreResult: ctr => {
             dispatch(counterActions.onStoreResult(ctr))
         }
     }
