@@ -17,6 +17,16 @@ function rootReducer(state = defaultState, action){
                 counter : state.counter - 1
             }
         }
+        case counterActions.ADD :{
+            return {
+                counter : state.counter + action.value
+            }
+        }
+        case counterActions.SUBTRACT :{
+            return {
+                counter : state.counter - action.value
+            }
+        }
         default:
             return state;
     }

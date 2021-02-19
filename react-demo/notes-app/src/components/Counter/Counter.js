@@ -18,8 +18,18 @@ class Counter extends Component {
                         <button className="btn btn-dark btn-block"
                             onClick={this.props.onDecrease}>Decrease</button>
                     </div>
-                    <div className="col-sm-3 col-md-3"></div>
-                    <div className="col-sm-3 col-md-3"></div>
+                    <div className="col-sm-3 col-md-3">
+                        <button className="btn btn-success btn-block"
+                            onClick = {() => this.props.onAdd(10)}>
+                            Add
+                        </button>
+                    </div>
+                    <div className="col-sm-3 col-md-3">
+                    <button className="btn btn-warning btn-block"
+                            onClick = {() => this.props.onSubtract(5)}>
+                            Subtract
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -42,6 +52,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         onDecrease : () => {
             dispatch({type : counterActions.DECREMENT})
+        },
+        onAdd : value => {
+            dispatch({type : counterActions.ADD, value})
+        },
+        onSubtract : value => {
+            dispatch(counterActions.onSubtract(value))
         }
     }
 }
