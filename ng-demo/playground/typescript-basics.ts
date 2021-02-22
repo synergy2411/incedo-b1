@@ -73,7 +73,7 @@
 
 
 
-// Decorators - functions with some metadata
+// Decorators (Angular) / Annotations(Other languages) - functions with some metadata
 // 5 Building blocks - Modules, Component, Services, Pipes, Directive
 
 // ES6 Class
