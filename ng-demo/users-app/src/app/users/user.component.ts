@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, DoCheck, OnInit } from "@angular/core";
 import { USER_DATA } from "../model/mocks";
 import { User } from "../model/user";
 
@@ -7,12 +7,16 @@ import { User } from "../model/user";
     templateUrl : './user.component.html',
     styleUrls : ['./user.component.css']
 })
-export class UsersComponent implements OnInit{
-    user : User;
+export class UsersComponent implements OnInit, DoCheck{
+    users : User[];
 
     ngOnInit(){
-        console.log("OnInit");
-        this.user = USER_DATA;
+        // console.log("OnInit");
+        this.users = USER_DATA;
+    }
+
+    ngDoCheck(){
+        // console.log("DoCheck");
     }
 
     onMoreInfo(usr : User){
