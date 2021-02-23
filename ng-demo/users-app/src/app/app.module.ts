@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/user.component';
 import { UserInfoComponent } from './users/user-info/user-info.component';
 import { UserImgComponent } from './users/user-img/user-img.component';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
     AppComponent,
     UsersComponent,
     UserInfoComponent,
-    UserImgComponent
+    UserImgComponent,
+    PipeDemoComponent
   ],
   imports: [                // Modules - built-in or custom
     BrowserModule,
