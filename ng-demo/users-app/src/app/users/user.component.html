@@ -5,7 +5,8 @@
         <!-- <img [src]="user.image" alt=""> -->
         <div class="row">
             <div class="col-sm-4 col-md-4">
-                <app-user-img [user]="user" (userEvent) = "onMoreInfo($event)" ></app-user-img>
+                <app-user-img [user]="user" 
+                    (userEvent) = "onMoreInfo($event)" ></app-user-img>
             </div>
             <div class="col-sm-8 col-md-8">
                 <app-user-info [user]="user"></app-user-info>
