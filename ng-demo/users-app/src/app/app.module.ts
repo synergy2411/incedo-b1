@@ -9,6 +9,7 @@ import { UserInfoComponent } from './users/user-info/user-info.component';
 import { UserImgComponent } from './users/user-img/user-img.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { NationalPipePipe } from './pipes/national-pipe.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
@@ -17,7 +18,8 @@ import { NationalPipePipe } from './pipes/national-pipe.pipe';
     UserInfoComponent,
     UserImgComponent,
     PipeDemoComponent,
-    NationalPipePipe
+    NationalPipePipe,
+    LoginComponent
   ],
   imports: [                // Modules - built-in or custom
     BrowserModule,
