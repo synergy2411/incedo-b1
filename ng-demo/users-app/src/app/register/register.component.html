@@ -3,7 +3,7 @@
         <label for="email">Email : </label>
         <input type="text" name="email" class="form-control" [formControl]="email">
         <div [hidden]= "email.valid || email.untouched" class="alert alert-danger">
-            *Some Problem with Email :
+            *Some problem with Email field:
             <div [hidden]="!email.hasError('required')">
                 - Email is madatory field
             </div>
@@ -16,12 +16,12 @@
         <label for="password">Password : </label>
         <input type="password" name="password" class="form-control" [formControl]="password">
         <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
-            *Some problem Password field :
+            *Some problem with Password field:
             <div [hidden]="!password.hasError('required')">
-                -Password is madatory field
+                - Password is madatory field
             </div>
             <div [hidden]="!password.hasError('minlength')">
-                -Password must have at least 6 character
+                - Password must have at least 6 characters
             </div>
         </div>
     </div>
