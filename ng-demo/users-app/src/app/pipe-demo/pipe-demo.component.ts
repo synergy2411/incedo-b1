@@ -9,6 +9,8 @@ export class PipeDemoComponent implements OnInit {
 
   // simulate the async Javascript behaviour 
 
+  contact_number = 987654321;
+
   promise = new Promise((resolve, reject)=>{
     setTimeout(() => {
       resolve("Here the data comes...")
