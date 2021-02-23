@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 
@@ -10,6 +10,7 @@ import { UserImgComponent } from './users/user-img/user-img.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { NationalPipePipe } from './pipes/national-pipe.pipe';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
@@ -19,11 +20,13 @@ import { LoginComponent } from './login/login.component';
     UserImgComponent,
     PipeDemoComponent,
     NationalPipePipe,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [                // Modules - built-in or custom
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],            // Services
   bootstrap: [AppComponent]

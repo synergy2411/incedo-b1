@@ -16,7 +16,7 @@ export const USER_DATA : User[] = [{
     company : 'Apple',
     isWorking : false,
     income : 0,
-    image : './assets/images/bill.jpg',
+    image : './assets/images/steve.jpg',
     votes : 180
 },{
     firstName : 'Tim B.',
@@ -25,6 +25,6 @@ export const USER_DATA : User[] = [{
     company : 'World Wide Web',
     isWorking : true,
     income : 30000,
-    image : './assets/images/bill.jpg',
+    image : './assets/images/tim.jpg',
     votes : 110
 }]
