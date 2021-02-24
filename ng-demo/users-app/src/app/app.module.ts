@@ -12,6 +12,7 @@ import { NationalPipePipe } from './pipes/national-pipe.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
@@ -22,7 +23,8 @@ import { DataService } from './services/data.service';
     PipeDemoComponent,
     NationalPipePipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ObservableDemoComponent
   ],
   imports: [                // Modules - built-in or custom
     BrowserModule,

@@ -19,7 +19,6 @@ export class UsersComponent implements OnInit, DoCheck {
         // this.users = this.dataService.getUserData();
         this.dataService.getUserDataFromAPI()
             .subscribe(response => {
-                // console.log("[RESPONSE]", response)
                 this.users = response['userdata'];
             });
     }
