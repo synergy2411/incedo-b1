@@ -6,6 +6,7 @@ import { OverviewComponent } from "./product/overview/overview.component";
 import { ProductComponent } from "./product/product.component";
 import { SpecificationComponent } from "./product/specification/specification.component";
 import { RegisterComponent } from "./register/register.component";
+import { LoginGuardService } from "./services/login-guard.service";
 import { UsersComponent } from "./users/user.component";
 
 export const APP_ROUTES : Routes = [
@@ -22,7 +23,8 @@ export const APP_ROUTES : Routes = [
         component : RegisterComponent
     },{
         path : 'users',                  // http://localhost:4200/users
-        component : UsersComponent
+        component : UsersComponent,
+        canActivate : [LoginGuardService]
     },{
         path : 'pipe-demo',              // http://localhost:4200/pipe-demo
         component : PipeDemoComponent
@@ -30,7 +32,7 @@ export const APP_ROUTES : Routes = [
         path : 'observable-demo',           // http://localhost:4200/observable-demo
         component : ObservableDemoComponent
     },{
-        path : 'product',                   // http://localhost:4200/product
+        path : 'product/:id/:product_name',                   // http://localhost:4200/product/3
         component : ProductComponent,
         children : [
             {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 
     <ul class="navbar-nav mr-auto">
 
@@ -21,7 +21,8 @@
             <a class="nav-link" [routerLink]="['/users']">Users</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/product']">Product</a>
+            <a class="nav-link" [routerLink]="['/product', 3, 'iPhone']"
+                [queryParams]="{'book_id': 99}">Product</a>
         </li>
 
     </ul>
