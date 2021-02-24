@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { NewEmployeeComponent } from "./employee/new-employee/new-employee.component";
 import { LoginComponent } from "./login/login.component";
 import { ObservableDemoComponent } from "./observable-demo/observable-demo.component";
 import { PipeDemoComponent } from "./pipe-demo/pipe-demo.component";
@@ -31,6 +32,12 @@ export const APP_ROUTES : Routes = [
     },{
         path : 'observable-demo',           // http://localhost:4200/observable-demo
         component : ObservableDemoComponent
+    },{
+        path : 'new-employee',
+        component : NewEmployeeComponent
+    },{
+        path : 'lazy',
+        loadChildren : () => import('./lazy/lazy.module').then(m => m.LazyModule)
     },{
         path : 'product/:id/:product_name',                   // http://localhost:4200/product/3
         component : ProductComponent,
