@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit, DoCheck {
     }
 
     onMoreInfo(usr: User) {
+        // debugger;           // setting the breakpoints to debug
         alert(`Mr. ${usr.lastName} is working with ${usr.company}!`);
     }
 }

@@ -20,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { LazyModule } from './lazy/lazy.module';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
@@ -43,7 +44,8 @@ import { SpecificationComponent } from './product/specification/specification.co
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    EmployeeModule
+    EmployeeModule,
+    
   ],
   // providers: [DataService],            // Services
   providers: [],            // Services
