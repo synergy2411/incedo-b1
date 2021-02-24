@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/user.component';
@@ -27,9 +27,11 @@ import { DataService } from './services/data.service';
   imports: [                // Modules - built-in or custom
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [DataService],            // Services
+  // providers: [DataService],            // Services
+  providers: [],            // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
