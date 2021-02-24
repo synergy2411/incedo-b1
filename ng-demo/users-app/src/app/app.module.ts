@@ -11,6 +11,7 @@ import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { NationalPipePipe } from './pipes/national-pipe.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [           // Component, Directive, Pipes
@@ -28,7 +29,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],            // Services
+  providers: [DataService],            // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
