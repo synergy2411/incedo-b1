@@ -2,6 +2,9 @@ import { Routes } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { ObservableDemoComponent } from "./observable-demo/observable-demo.component";
 import { PipeDemoComponent } from "./pipe-demo/pipe-demo.component";
+import { OverviewComponent } from "./product/overview/overview.component";
+import { ProductComponent } from "./product/product.component";
+import { SpecificationComponent } from "./product/specification/specification.component";
 import { RegisterComponent } from "./register/register.component";
 import { UsersComponent } from "./users/user.component";
 
@@ -15,7 +18,7 @@ export const APP_ROUTES : Routes = [
         path : 'login',                      // http://localhost:4200/login
         component : LoginComponent
     },{
-        path : 'register',              // http://localhost:4200/register
+        path : 'register',               // http://localhost:4200/register
         component : RegisterComponent
     },{
         path : 'users',                  // http://localhost:4200/users
@@ -26,6 +29,18 @@ export const APP_ROUTES : Routes = [
     },{
         path : 'observable-demo',           // http://localhost:4200/observable-demo
         component : ObservableDemoComponent
+    },{
+        path : 'product',                   // http://localhost:4200/product
+        component : ProductComponent,
+        children : [
+            {
+                path : 'overview',          // http://localhost:4200/product/overview
+                component : OverviewComponent
+            },{
+                path : 'specification',         // http://localhost:4200/product/specification
+                component : SpecificationComponent
+            }
+        ]
     },{
         path : "**",                        // http://localhost:4200/nowhere
         redirectTo : 'register',
